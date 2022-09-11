@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class DbOperationDao {
 	public static final String DRIVER = "org.postgresql.Driver";
 	public static final String USER_NAME = "postgres";
