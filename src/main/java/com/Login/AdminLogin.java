@@ -1,5 +1,4 @@
 package com.Login;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AdminLogin")
 public class AdminLogin  extends HttpServlet {
-	
 	public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException{
 		PrintWriter out = res.getWriter();
 		String name=req.getParameter("name");

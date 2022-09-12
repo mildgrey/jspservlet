@@ -15,9 +15,7 @@ table, th, td {
 <body>
 <h1>Active User Data Display Here : </h1>
 <%ResultSet rs=null; 
-
- rs=DbOperationDao.fetchUserData();
- 	
+ rs=DbOperationDao.fetchUserData();	
  int id,activeArchive;
  String name,email,message;
 %>
@@ -28,8 +26,7 @@ table, th, td {
     <th colspan="2">Email</th>
     <th colspan="2">Message</th>
     <th colspan="2">Button</th>
-  </tr>
-  
+  </tr>  
   <%while(rs.next()){ %>
   <%  id=rs.getInt(4); 
       activeArchive=rs.getInt(5);
@@ -47,17 +44,13 @@ table, th, td {
     		<input type="hidden" value=<%=id%> name="id" >
     		<input type="submit" value=<%="Archive"%> name="fromsubmit">
     		</form> </td>
-    </tr>
-    
+    </tr>  
    <%}%>
   	<%} %>
   	</table>
-  	<br/>
-  	
-  	<br/>
-  	
-  	<% rs=DbOperationDao.fetchUserData();%>
-  	
+<br/>  	
+<br/>
+<% rs=DbOperationDao.fetchUserData();%>
  <h1>Archive User Data Display Here : </h1>
   <table>
   <tr>
@@ -67,30 +60,28 @@ table, th, td {
     <th colspan="2">Message</th>
     <th colspan="2">Button</th>
   </tr>
-  
   <%while(rs.next()){ %>
-  
   <%  id=rs.getInt(4); 
       activeArchive=rs.getInt(5);
   	  name=rs.getString(1);
   	  email=rs.getString(2);
   	  message=rs.getString(3);
-  	 %>
+  %>
   	<%if(activeArchive==0){ %> 
   	<tr>
     <td class="tdata" colspan="2"><%= id %></td>
     <td class="tdata" colspan="2"><%= name %></td>
     <td class="tdata" colspan="2"><%= email %></td>
     <td class="tdata" colspan="2"><%= message %></td>
-    <td class="tdata" colspan="2"> <form name="frm" action="archiveData">
+    <td class="tdata" colspan="2"> 
+    	<form name="frm" action="archiveData">
     		<input type="hidden" value=<%=id%> name="id" >
     		<input type="submit" value=<%="Active"%> name="fromsubmit">
-    		
-    		</form> </td>
-    </tr>
-    
+    	</form> 
+    </td>
+    </tr>  
    <%}%>
   	<%} %>
-  	</table>	
+  </table>	
 </body>
 </html>

@@ -1,5 +1,4 @@
 package com.Login;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -13,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/archiveData")
 public class archiveData  extends HttpServlet{
 	public  void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-
 		int id=Integer.parseInt(req.getParameter("id"));
 		String fromsubmit = req.getParameter("fromsubmit"); 
-		
 		if(fromsubmit.equals("Archive")) {
 			DbOperationDao.activeArchive(id,0);
 		}
@@ -25,7 +22,5 @@ public class archiveData  extends HttpServlet{
 		}
 		RequestDispatcher RequetsDispatcherObj =req.getRequestDispatcher("/UserDataDisplay.jsp");
 		RequetsDispatcherObj.forward(req, res);
-		
 	}
-
 }
